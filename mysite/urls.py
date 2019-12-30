@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from login.views import home_view, form_view
+from login.views import home_view, form_view, data_view, update_view, add_activity
 from django.conf.urls import url
 from login import views as core_views
 
@@ -24,5 +24,8 @@ urlpatterns = [
     path('', home_view, name="home"),
     url(r'^signup/$', core_views.signup, name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
-    url('form/', form_view)
+    url('form/', form_view),
+    url('data/', data_view, name='data_page'),
+    url('update/', update_view, name='update'),
+    url('new_activity/', add_activity, name='add_activity')
 ]

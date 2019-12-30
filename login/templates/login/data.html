@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+  Hi {{ user.username }}!
+  Your age: {{ user.profile.age }}
+  Your gender: {{ user.profile.gender }}
+  Your height: {{ user.profile.height }}
+  Your weight: {{ user.profile.weight }}
+  <a href="{% url 'update' %}">Update your account</a>
+  <a href="{% url 'home' %}">Home page</a>
+
+{% endblock %}

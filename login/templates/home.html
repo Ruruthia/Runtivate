@@ -5,11 +5,9 @@
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
-  Your age: {{ user.profile.age }}
-  Your gender: {{ user.profile.gender }}
-  Your height: {{ user.profile.height }}
-  Your weight: {{ user.profile.weight }}
   <a href="{% url 'logout' %}">logout</a>
+  <a href="{% url 'data_page' %}">your account</a>
+  <a href="{% url 'add_activity' %}">add activity</a>
 
 {% else %}
   <p>You are not logged in</p>

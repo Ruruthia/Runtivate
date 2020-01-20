@@ -6,6 +6,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Activity
 from .forms import NameForm, ActivityForm
 from django.http import HttpResponseRedirect
+#TODO:
+#1.Sprawdzac czy user jest zalogowany
+
 
 def home_view(request):
 
@@ -112,3 +115,20 @@ def edit_activity(request, activity_id):
     else:
         form = ActivityForm(initial={'date':activity.date, 'distance':activity.distance, 'duration':activity.duration, 'comment':activity.comment})
     return render(request, 'login/form.html', {'form': form})
+
+
+def stats_view(request):
+    if request.user.is_authenticated:
+        activities = Activity.objects.all().filter(profile = request.user.profile)
+        count = activities.count()
+        calories = 0
+        distance = 0
+        time = 0
+        for activity in activities:
+            calories += round(activity.distance*request.user.profile.weight*1.036)
+            distance += activity.distance
+            time += activity.duration
+        avg_tempo = round(time/distance, 2)
+        return render(request, 'stats.html', {'count' : count, 'calories' : calories, 'distance' : distance, 'time' : time, 'avg_tempo' : avg_tempo})
+    else:
+        return render(request, 'stats.html')

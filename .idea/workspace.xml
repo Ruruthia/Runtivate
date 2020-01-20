@@ -4,7 +4,7 @@
     <list default="true" id="2d216899-aa04-4a6a-9396-8bbe44e9fc1c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/templates/login/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/login/templates/login/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/login/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
     </list>
@@ -71,5 +71,9 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="743" y="315" width="424" height="490" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1577725755627" />
+    <state x="708" y="249" width="494" height="621" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579530636344">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="708" y="249" width="494" height="621" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.34.1920.1046@0.34.1920.1046" timestamp="1579530636344" />
   </component>
 </project>

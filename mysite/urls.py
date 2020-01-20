@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from login.views import home_view, form_view, data_view, update_view, add_activity, history_view, activity_detail_view, remove_view, edit_activity
+from login.views import home_view, form_view, data_view, update_view, add_activity, history_view, activity_detail_view, remove_view, edit_activity, stats_view
 from django.conf.urls import url
 from login import views as core_views
 
@@ -32,4 +32,5 @@ urlpatterns = [
     path('view_history/<int:activity_id>/', activity_detail_view, name='detail'),
     path('remove/<int:activity_id>', remove_view, name='remove'),
     path('edit/<int:activity_id>', edit_activity, name='edit'),
+    path('stats/', stats_view, name='stats'),
 ]

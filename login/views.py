@@ -1,6 +1,8 @@
 from django.contrib.auth import login, authenticate
+from django.http import Http404
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Activity
 from .forms import NameForm, ActivityForm
 from django.http import HttpResponseRedirect
@@ -55,7 +57,7 @@ def update_view(request):
             request.user.profile.save()
             return redirect('data/')
     else:
-        form = NameForm()
+        form = NameForm(initial={"weight":request.user.profile.weight, 'height':request.user.profile.height, 'age':request.user.profile.age, 'gender':request.user.profile.gender})
     return render(request, 'login/form.html', {'form': form})
 
 def add_activity(request):
@@ -72,4 +74,41 @@ def add_activity(request):
             return redirect('/')
     else:
         form = ActivityForm()
+    return render(request, 'login/form.html', {'form': form})
+
+def history_view(request):
+    history=Activity.objects.all().filter(profile=request.user.profile)
+    contex = {'history':history}
+    return render(request, 'login/history.html', contex)
+
+def activity_detail_view(request, activity_id):
+    activity = get_object_or_404(Activity, pk=activity_id)
+    if activity.profile.id is not request.user.profile.id:
+        raise Http404("Activity does not exist")
+    calories = round(activity.distance*request.user.profile.weight*1.036)
+    tempo = round(activity.duration/activity.distance, 2)
+    return render(request, 'login/details.html', {'activity':activity, 'calories':calories, 'tempo': tempo})
+
+def remove_view(request, activity_id):
+    activity = get_object_or_404(Activity, pk=activity_id)
+    if activity.profile.id is not request.user.profile.id:
+        raise Http404("Activity does not exist")
+    activity.delete()
+    return render(request, 'login/deleted.html')
+
+def edit_activity(request, activity_id):
+    activity = get_object_or_404(Activity, pk=activity_id)
+    if activity.profile.id is not request.user.profile.id:
+        raise Http404("Activity does not exist")
+    if request.method == 'POST':
+        form = ActivityForm(request.POST)
+        if form.is_valid():
+            activity.date=form.cleaned_data['date']
+            activity.distance=form.cleaned_data['distance']
+            activity.duration=form.cleaned_data['duration']
+            activity.comment=form.cleaned_data['comment']
+            activity.save()
+            return redirect('/view_history')
+    else:
+        form = ActivityForm(initial={'date':activity.date, 'distance':activity.distance, 'duration':activity.duration, 'comment':activity.comment})
     return render(request, 'login/form.html', {'form': form})

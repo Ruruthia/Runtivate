@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from login.views import home_view, form_view, data_view, update_view, add_activity
+from login.views import home_view, form_view, data_view, update_view, add_activity, history_view, activity_detail_view, remove_view, edit_activity
 from django.conf.urls import url
 from login import views as core_views
 
@@ -27,5 +27,9 @@ urlpatterns = [
     url('form/', form_view),
     url('data/', data_view, name='data_page'),
     url('update/', update_view, name='update'),
-    url('new_activity/', add_activity, name='add_activity')
+    url('new_activity/', add_activity, name='add_activity'),
+    path('view_history/', history_view, name='view_history'),
+    path('view_history/<int:activity_id>/', activity_detail_view, name='detail'),
+    path('remove/<int:activity_id>', remove_view, name='remove'),
+    path('edit/<int:activity_id>', edit_activity, name='edit'),
 ]

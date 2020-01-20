@@ -1,0 +1,11 @@
+
+{% if history %}
+    <ul>
+    {% for activity in history %}
+        <li>Date: {{activity.date}}, duration: {{activity.duration}}, distance: {{activity.distance}}, comment: {{activity.comment}}, <a href="{% url 'detail' activity.id %}">Details</a></li>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No activities are available.</p>
+{% endif %}

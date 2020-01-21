@@ -1,3 +1,23 @@
-Date: {{activity.date}}, duration: {{activity.duration}}, distance: {{activity.distance}}, comment: {{activity.comment}}, cal:{{calories}}, tempo:{{tempo}}
-<a href="{% url 'remove' activity.id %}">Delete!</a>
-<a href="{% url 'edit' activity.id %}">Edit</a>
+{% extends 'base.html' %}
+{% block content %}
+        <div class="jumbotron">
+            <div class="container">
+              <div class="welcome">
+              <br>
+              <h1> Your activity: </h1>
+              <h3 style="opacity: 0.5; line-height:1.5;">
+                  Date: {{activity.date}}<br>
+                  Duration: {{activity.duration}}<br>
+                  Distance: {{activity.distance}} <br>
+                  Calories:{{calories}} <br>
+                  Tempo:{{tempo}} <br>
+                  Comment: {{activity.comment}} <br></h3>
+
+                  <h4><a class="nav-link update"  href="{% url 'edit' activity.id %}">Edit this activity!</a></h4>
+                  <h4><a class="nav-link update"  href="{% url 'remove' activity.id %}">Delete this activity!</a></h4>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+

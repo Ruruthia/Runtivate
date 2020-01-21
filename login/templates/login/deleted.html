@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Deleted!</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-Activity has been deleted.
-<a href="{% url 'view_history' %}">Go back to history</a>
-<a href="{% url 'home' %}">Home page</a>
-</body>
-</html>
+{% block content %}
+<div style ="text-align:center;">
+
+    <h3 style="padding-top:30vh;"> Activity has been deleted!</h3><br>
+    <a href="{% url 'view_history' %}" class="btn btn-info ">Go back to history!</a
+</div>
+
+{% endblock %}

@@ -3,19 +3,28 @@
 {% block title %}Stats{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-Your stats are:
-<ul>
-    <li>Number of activites: {{count}}</li>
-    <li>Calories burned: {{calories}}</li>
-    <li>Distance: {{distance}}</li>
-    <li>Time: {{time}}</li>
-    <li>Average tempo: {{avg_tempo}}</li>
-</ul>
+{% if count %}
+        <div class="jumbotron">
+            <div class="container">
+              <div class="welcome">
+              <br>
+              <h1> Your stats are: </h1>
+              <h3 style="opacity: 0.5; line-height:1.5;">
+                  Number of activites: {{count}} <br>
+                  Calories burned: {{calories}} <br>
+                  Distance: {{distance}} <br>
+                  Active time: {{time}} <br>
+                  Average tempo: {{avg_tempo}} <br>
+              </h3>
+              <br><br>
+                </div>
+            </div>
+        </div>
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-  <a href="{% url 'signup' %}">signup</a>
+<div style ="text-align:center;">
+    <h3 style="padding-top:30vh;"> Add some activities first!</h3><br>
+    <a href="{% url 'add_activity' %}" class="btn btn-info ">Click!</a>
+</div>
 {% endif %}
 {% endblock %}
+

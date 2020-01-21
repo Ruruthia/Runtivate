@@ -1,21 +1,16 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
+<div class="container" style="margin:auto; margin-top:3vh; margin-bottom: 8vh;">
+    <h1>{{message}}</h1><br>
+<form action="" method="post">
     {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
-  </form>
+    {{ form.media }}
+    {{ form|crispy }}
+      <div style="text-align:center;">
+    <input type="submit" class="btn btn-info" value="Submit">
+      </div>
+
+</form>
+</div>
 {% endblock %}

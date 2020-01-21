@@ -15,5 +15,5 @@ class Activity(models.Model):
     date = models.DateField()
     duration = models.IntegerField()
     distance = models.FloatField()
-    comment = models.CharField(max_length=150)
+    comment = models.CharField(max_length=120)
 

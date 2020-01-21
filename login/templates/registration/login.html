@@ -1,6 +1,17 @@
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container" style="margin:auto; margin-top:20vh; margin-bottom: 8vh; width:50vw; height:50vh;">
+    <div style="text-align:center;">
+  <h1 >Please log in!</h1>
+      <br></div>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form|crispy }}
+  <div style="text-align:center;">
+    <input type="submit" class="btn btn-info" style="margin-top:3vh;" value="Login">
+  </div>
 </form>
+</div>
+{% endblock %}

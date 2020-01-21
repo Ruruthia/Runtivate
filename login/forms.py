@@ -1,6 +1,8 @@
 from django import forms
 import datetime
-YEARS= [x for x in range(2010,2020)]
+
+YEARS= [x for x in range(2010,2025)]
+from bootstrap_datepicker_plus import DatePickerInput
 
 class NameForm(forms.Form):
     weight = forms.IntegerField(label='Your weight', min_value=30, required=True)
@@ -11,8 +13,9 @@ class NameForm(forms.Form):
 
 class ActivityForm(forms.Form):
 
-    date = forms.DateField(label='Date of activity', required=True, initial=datetime.datetime.now(), widget=forms.SelectDateWidget(years=YEARS))
+    date = forms.DateField(label='Date of activity', required=True, initial=datetime.datetime.now(),  widget=DatePickerInput(format='%d/%m/%Y'
+            ))
     duration = forms.IntegerField(label='Duration of activity', min_value=1, required=True)
     distance = forms.FloatField(label='Distance of activity',  min_value=1, required=True)
-    comment = forms.CharField(label='Comment',max_length=150, widget=forms.Textarea, required=True)
+    comment = forms.CharField(label='Comment',max_length=120, widget=forms.Textarea, required=False)
 

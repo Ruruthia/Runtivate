@@ -1,6 +1,17 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container" style="margin:auto; margin-top:3vh; margin-bottom: 8vh;">
+    <h1>{{message}}</h1><br>
 <form action="" method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+    {{ form.media }}
+    {{ form|crispy }}
+      <div style="text-align:center;">
+    <input type="submit" class="btn btn-info" value="Submit">
+      </div>
 
+</form>
+</div>
+{% endblock %}

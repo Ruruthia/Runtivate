@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
+import datetime
 
 class Profile(models.Model):
 
@@ -16,4 +18,8 @@ class Activity(models.Model):
     duration = models.IntegerField()
     distance = models.FloatField()
     comment = models.CharField(max_length=120)
+    # For tests:
+
+    def __str__(self):
+        return self.comment
 

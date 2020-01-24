@@ -1,14 +1,12 @@
 from django.contrib.auth import login, authenticate
 from django.http import Http404
 from django import forms
+from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile, Activity
 from .forms import NameForm, ActivityForm
 from django.http import HttpResponseRedirect
-#TODO:
-#1.Sprawdzac czy user jest zalogowany
-#2. nie wyswietlac cwiczen z przyszlosci
 
 def home_view(request):
 
@@ -99,7 +97,7 @@ def add_activity(request):
 
 def history_view(request):
     if request.user.is_authenticated:
-        history=Activity.objects.all().filter(profile=request.user.profile)
+        history=Activity.objects.all().filter(profile=request.user.profile, date__lte=timezone.now()).order_by('-date')
         contex = {'history':history}
         return render(request, 'login/history.html', contex)
     else:
@@ -152,7 +150,7 @@ def edit_activity(request, activity_id):
 
 def stats_view(request):
     if request.user.is_authenticated:
-        activities = Activity.objects.all().filter(profile = request.user.profile)
+        activities = Activity.objects.all().filter(profile=request.user.profile, date__lte=timezone.now())
         if not activities:
             return render(request, 'stats.html')
         count = activities.count()

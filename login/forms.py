@@ -5,6 +5,7 @@ YEARS= [x for x in range(2010,2025)]
 from bootstrap_datepicker_plus import DatePickerInput
 
 class NameForm(forms.Form):
+
     weight = forms.IntegerField(label='Your weight', min_value=30, required=True)
     height= forms.IntegerField(label='Your height', min_value=100, required=True)
     age = forms.IntegerField(label='Your age', min_value=16, required=True)

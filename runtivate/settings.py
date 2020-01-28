@@ -19,13 +19,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'nrc81vtb5-f+dvdbq6i#(1ljl-u=nb*&#-itzs(oz8j&)&hb+3'
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'nrc81vtb5-f+dvdbq6i#(1ljl-u=nb*&#-itzs(oz8j&)&hb+3'
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['runtivate.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'runtivate.herokuapp.com']
 
 # Application definition
 
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'runtivate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'login/templates/registration')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

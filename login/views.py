@@ -9,6 +9,8 @@ from .forms import NameForm, ActivityForm
 
 
 def home_view(request):
+
+    """Home view. When user is logged in but does not have a profile it requests making one."""
     if request.user.is_authenticated and not hasattr(request.user, 'profile'):
         return redirect('/form')
     else:
@@ -16,6 +18,8 @@ def home_view(request):
 
 
 def signup(request):
+
+    """View used for signing up."""
     message = "Sign up!"
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -32,6 +36,8 @@ def signup(request):
 
 
 def form_view(request):
+
+    """View used for creating a profile."""
     if request.user.is_authenticated:
         if request.method == 'POST':
             form = NameForm(request.POST)
@@ -51,6 +57,8 @@ def form_view(request):
 
 
 def data_view(request):
+
+    """View used for showing information about user's profile."""
     if request.user.is_authenticated:
         return render(request, 'data.html')
     else:
@@ -58,6 +66,8 @@ def data_view(request):
 
 
 def update_view(request):
+
+    """View used for updating user's profile."""
     message = "Update your account!"
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -78,6 +88,8 @@ def update_view(request):
 
 
 def add_activity(request):
+
+    """View used for adding new activity."""
     message = "Add new activity!"
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -99,6 +111,8 @@ def add_activity(request):
 
 
 def history_view(request):
+
+    """View used for showing history of user's activities."""
     if request.user.is_authenticated:
         history = Activity.objects.all().filter(profile=request.user.profile, date__lte=timezone.now()).order_by(
             '-date')
@@ -109,6 +123,8 @@ def history_view(request):
 
 
 def activity_detail_view(request, activity_id):
+
+    """View used for showing details of one activity."""
     if request.user.is_authenticated:
         activity = get_object_or_404(Activity, pk=activity_id)
         if activity.profile.id is not request.user.profile.id:
@@ -121,6 +137,8 @@ def activity_detail_view(request, activity_id):
 
 
 def remove_view(request, activity_id):
+
+    """View used for showing that activity has been deleted."""
     if request.user.is_authenticated:
         activity = get_object_or_404(Activity, pk=activity_id)
         if activity.profile.id is not request.user.profile.id:
@@ -132,6 +150,8 @@ def remove_view(request, activity_id):
 
 
 def edit_activity(request, activity_id):
+
+    """View used for editing an activity."""
     message = "Edit this activity!"
     if request.user.is_authenticated:
         activity = get_object_or_404(Activity, pk=activity_id)
@@ -156,6 +176,8 @@ def edit_activity(request, activity_id):
 
 
 def stats_view(request):
+
+    """View used for showing statistics of user's activities."""
     if request.user.is_authenticated:
         activities = Activity.objects.all().filter(profile=request.user.profile, date__lte=timezone.now())
         if not activities:

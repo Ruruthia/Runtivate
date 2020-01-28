@@ -3,6 +3,8 @@ from django.db import models
 
 
 class Profile(models.Model):
+
+    """Model used for representing user's profile with additional data required to counting burned calories."""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     weight = models.IntegerField(default=0)
     height = models.IntegerField(default=0)
@@ -11,6 +13,8 @@ class Profile(models.Model):
 
 
 class Activity(models.Model):
+
+    """Model used for representing an activity."""
     profile = models.ForeignKey('Profile', on_delete=models.CASCADE, )
     date = models.DateField()
     duration = models.IntegerField()

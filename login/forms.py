@@ -4,6 +4,8 @@ from bootstrap_datepicker_plus import DatePickerInput
 
 
 class NameForm(forms.Form):
+
+    """Form used for creating user's profile with additional data required to counting burned calories."""
     weight = forms.IntegerField(label='Your weight', min_value=30, required=True)
     height = forms.IntegerField(label='Your height', min_value=100, required=True)
     age = forms.IntegerField(label='Your age', min_value=16, required=True)
@@ -12,6 +14,8 @@ class NameForm(forms.Form):
 
 
 class ActivityForm(forms.Form):
+
+    """Form used for creating new activity."""
     date = forms.DateField(label='Date of activity', required=True, initial=datetime.datetime.now(),
                            widget=DatePickerInput(format='%d/%m/%Y'))
     duration = forms.IntegerField(label='Duration of activity', min_value=1, required=True)

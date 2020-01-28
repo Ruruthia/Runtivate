@@ -35,10 +35,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/login/templates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/login/templates" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/login/templates/registration" />
       <recent name="$PROJECT_DIR$/login/templates" />
     </key>
   </component>

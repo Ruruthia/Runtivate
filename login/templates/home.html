@@ -6,9 +6,9 @@
 
 <div class="jumbotron">
   <div class="container">
-    <div style="margin-left:15vw;">
+    <div style="margin-left:7vw;">
       <br><br>
-      <h1> Hi {{user.username}}! </h1><br>
+      <h1 style="font-size:60px;"> Hi {{user.username}}! </h1><br>
       <h3 class="big_print">
         Plan your workouts! <br>
         Check your statistics! <br>
@@ -26,9 +26,9 @@
   </a>
 </nav>
 <div class="jumbotron text-center">
-  <h4 style="margin-top:25vh;">You are not logged in!</h4>
-  <a href="{% url 'login' %}" class="nav-link update" style="padding:1vw;">Login</a>
-  <a href="{% url 'signup' %}" class="nav-link update">Signup</a>
+  <h4 style="margin-top:25vh; font-size: 60px;">You are not logged in!</h4>
+  <a href="{% url 'login' %}" class="nav-link update" style="padding:1vw;"><h1>Login</h1></a>
+  <a href="{% url 'signup' %}" class="nav-link update"><h1>Signup</h1></a>
 </div>
 
 {% endif %}

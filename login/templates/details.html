@@ -4,9 +4,9 @@
 
 <div class="jumbotron">
   <div class="container">
-    <div class="welcome">
+    <div style="margin-left:15vw;">
       <br>
-      <h1> Your activity: </h1>
+      <h1 style ="font-size:60px;"> Your activity: </h1>
       <h3 class="big_print">
         Date: {{activity.date}}<br>
         Duration: {{activity.duration}} min<br>
@@ -14,8 +14,8 @@
         Calories:{{calories}} kcal<br>
         Tempo:{{tempo}} min/km<br>
         Comment: {{activity.comment}} <br></h3>
-      <h4><a class="nav-link update" href="{% url 'edit' activity.id %}">Edit this activity!</a></h4>
-      <h4><a class="nav-link update" href="{% url 'remove' activity.id %}">Delete this activity!</a></h4>
+      <h2><a class="nav-link update" href="{% url 'edit' activity.id %}">Edit this activity!</a></h2>
+      <h2><a class="nav-link update" href="{% url 'remove' activity.id %}">Delete this activity!</a></h2>
     </div>
   </div>
 </div>

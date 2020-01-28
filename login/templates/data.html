@@ -4,17 +4,18 @@
 
 <div class="jumbotron">
   <div class="container">
-    <div class="welcome">
+    <div style="margin-left:15vw;">
       <br>
-      <h1> Your account: </h1>
+      <h1 style ="font-size:60px;"> Your account: </h1>
       <h3 class="big_print">
         Your age: {{ user.profile.age }}<br>
         Your gender: {{ user.profile.gender }}<br>
         Your height: {{ user.profile.height }} <br>
-        Your weight: {{ user.profile.weight }} <br></h3>
-      <h2><a class="nav-link update" href="{% url 'update' %}">Update your account!</a></h2>
+        Your weight: {{ user.profile.weight }} <br></h3><br>
+      <h1><a class="nav-link update" href="{% url 'update' %}">Update your account!</a></h1>
     </div>
   </div>
 </div>
+
 
 {% endblock %}

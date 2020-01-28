@@ -1,6 +1,7 @@
 body {
   background-color: #E9ECEF;
   font-family: 'Montserrat';
+  font-size: 25px;
 }
 
 table {
@@ -13,11 +14,12 @@ table {
 .big_print {
   line-height: 1.5;
   opacity: 0.5;
+  font-size: 40px;
 }
 
 .bottom_navbar {
-  font-size: 10px;
-  height: 30px;
+  font-size: 15px;
+  height: 45px;
 }
 
 .by_mw {

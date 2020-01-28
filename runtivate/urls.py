@@ -1,4 +1,4 @@
-"""mysite URL Configuration
+"""runtivate URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -22,12 +22,12 @@ from login import views as core_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name="home"),
-    url(r'^signup/$', core_views.signup, name='signup'),
+    path('signup/', core_views.signup, name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
-    url('form/', form_view),
-    url('data/', data_view, name='data_page'),
-    url('update/', update_view, name='update'),
-    url('new_activity/', add_activity, name='add_activity'),
+    path('form/', form_view),
+    path('data/', data_view, name='data_page'),
+    path('update/', update_view, name='update'),
+    path('new_activity/', add_activity, name='add_activity'),
     path('view_history/', history_view, name='view_history'),
     path('view_history/<int:activity_id>/', activity_detail_view, name='detail'),
     path('remove/<int:activity_id>', remove_view, name='remove'),

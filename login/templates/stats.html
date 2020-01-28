@@ -1,31 +1,33 @@
 {% extends 'base.html' %}
-
-{% block title %}Stats{% endblock %}
-
+{% block title %} Stats {% endblock %}
 {% block content %}
+
 {% if count %}
-        <div class="jumbotron">
-            <div class="container">
-              <div class="welcome">
-              <br>
-              <h1> Your stats are: </h1>
-                  <p style="opacity: 0.5; line-height:0.3;">*based on past activities</p>
-              <h3 style="opacity: 0.5; line-height:1.5;">
-                  Number of activites: {{count}} <br>
-                  Calories burned: {{calories}} kcal<br>
-                  Distance: {{distance}} km <br>
-                  Active time: {{time}} min <br>
-                  Average tempo: {{avg_tempo}} min/km<br>
-              </h3>
-              <br><br>
-                </div>
-            </div>
-        </div>
-{% else %}
-<div style ="text-align:center;">
-    <h3 style="padding-top:30vh;"> Add some past activities first!</h3><br>
-    <a href="{% url 'add_activity' %}" class="btn btn-info ">Click!</a>
+
+<div class="jumbotron">
+  <div class="container">
+    <div style="margin-left:15vw;">
+      <br>
+      <h1> Your stats are: </h1>
+      <p class="small_print">*based on past activities</p>
+      <h3 class="big_print">
+        Number of activites: {{count}} <br>
+        Calories burned: {{calories}} kcal<br>
+        Distance: {{distance}} km <br>
+        Active time: {{time}} min <br>
+        Average tempo: {{avg_tempo}} min/km<br>
+      </h3>
+      <br><br>
+    </div>
+  </div>
 </div>
+
+{% else %}
+
+<div class="text-center">
+  <h3 style="padding-top:30vh;"> Add some past activities first!</h3><br>
+  <a href="{% url 'add_activity' %}" class="btn btn-info ">Click!</a>
+</div>
+
 {% endif %}
 {% endblock %}
-

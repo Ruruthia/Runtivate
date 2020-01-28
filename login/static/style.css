@@ -1,9 +1,63 @@
-body{
-background-color: #E9ECEF;
-font-family: 'Montserrat';
+body {
+  background-color: #E9ECEF;
+  font-family: 'Montserrat';
 }
 
-.welcome{
-    margin-left:15vw;
+table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-style: hidden;
+  overflow: hidden;
 }
+
+.big_print {
+  line-height: 1.5;
+  opacity: 0.5;
+}
+
+.bottom_navbar {
+  font-size: 10px;
+  height: 30px;
+}
+
+.by_mw {
+  color: #727272 !important;
+}
+
+.login_container {
+  height: 50vh;
+  margin: auto;
+  margin-bottom: 8vh;
+  margin-top: 20vh;
+  width: 50vw;
+}
+
+.message_container {
+  margin: auto;
+  margin-bottom: 8vh;
+  margin-top: 3vh;
+}
+
+.small_print {
+  line-height: 0.3;
+  opacity: 0.5;
+}
+
+.table-striped>tbody>tr:nth-child(2n)>td, .table-striped>tbody>tr:nth-child(2n)>th {
+  background-color: #cecece;
+}
+
+.update {
+  color: #17A2B8 !important;
+  opacity: 1;
+  padding: 0;
+}
+
+.update:hover {
+  color: #117989 !important;
+}
+
+
+
+
 

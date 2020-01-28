@@ -1,35 +1,35 @@
 {% extends 'base.html' %}
-
-{% block title %}Runtivate{% endblock %}
-
-
+{% block title %} Runtivate {% endblock %}
 {% block content %}
+
 {% if user.is_authenticated %}
 
-        <div class="jumbotron">
-            <div class="container">
-              <div class="welcome">
-              <br><br>
-              <h1> Hi {{user.username}}! </h1><br>
-              <h3 style="opacity: 0.5; line-height:1.5;">
-                  Plan your workouts! <br>
-                  Check your statistics! <br>
-                  Run the world! <br></h3>
-              <br><br>
-                </div>
-            </div>
-        </div>
+<div class="jumbotron">
+  <div class="container">
+    <div style="margin-left:15vw;">
+      <br><br>
+      <h1> Hi {{user.username}}! </h1><br>
+      <h3 class="big_print">
+        Plan your workouts! <br>
+        Check your statistics! <br>
+        Run the world! <br></h3>
+      <br><br>
+    </div>
+  </div>
+</div>
 
 {% else %}
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-info" style="margin-bottom:0px;">
-    <a class="navbar-brand" href="{% url 'home' %}">
-      Runtivate
-    </a>
-  </nav>
-  <div class="jumbotron" style="text-align:center;">
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-info" style="margin-bottom: 0px;">
+  <a class="navbar-brand" href="{% url 'home' %}">
+    Runtivate
+  </a>
+</nav>
+<div class="jumbotron text-center">
   <h4 style="margin-top:25vh;">You are not logged in!</h4>
   <a href="{% url 'login' %}" class="nav-link update" style="padding:1vw;">Login</a>
-  <a href="{% url 'signup' %}" class="nav-link update" >Signup</a>
-  </div>
+  <a href="{% url 'signup' %}" class="nav-link update">Signup</a>
+</div>
+
 {% endif %}
 {% endblock %}
